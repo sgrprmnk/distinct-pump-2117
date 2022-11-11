@@ -1,0 +1,27 @@
+package worldTourist.usecases;
+
+import java.util.Scanner;
+
+import worldTourist.dao.ContactDao;
+import worldTourist.dao.ContactDaoImpl;
+import worldTourist.model.Contact;
+
+public class registerContactUseCase {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Please Enter Contact name");
+		String name =sc.next();
+		
+		System.out.println("Please Enter Phone Number ");
+		String phone=sc.next();
+		
+		ContactDao dao =new ContactDaoImpl();
+		
+		Contact contact =new Contact(name,phone);
+		
+		String res=dao.register(contact);
+		System.out.println(res);
+	}
+}
