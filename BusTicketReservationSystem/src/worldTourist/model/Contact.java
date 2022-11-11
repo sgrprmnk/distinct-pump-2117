@@ -1,7 +1,7 @@
 package worldTourist.model;
 
 public class Contact {
-private int id;
+
 private String name;
 private String phone;
 
@@ -9,19 +9,10 @@ public Contact() {
 	// TODO Auto-generated constructor stub
 }
 
-public Contact(int id, String name, String phone) {
+public Contact(String name, String phone) {
 	super();
-	this.id = id;
 	this.name = name;
 	this.phone = phone;
-}
-
-public int getId() {
-	return id;
-}
-
-public void setId(int id) {
-	this.id = id;
 }
 
 public String getName() {
@@ -39,5 +30,6 @@ public String getPhone() {
 public void setPhone(String phone) {
 	this.phone = phone;
 }
+
 
 }
