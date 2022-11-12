@@ -13,6 +13,12 @@ public Bus() {
 	// TODO Auto-generated constructor stub
 }
 
+@Override
+public String toString() {
+	return "Bus [busId=" + busId + ", busName=" + busName + ", busRoute=" + busRoute + ", busType=" + busType
+			+ ", seats=" + seats + ", sourceTravel=" + sourceTravel + ", sourceDestination=" + sourceDestination + "]";
+}
+
 public Bus(int busId, String busName, String busRoute, String busType, int seats, String sourceTravel,
 		String sourceDestination) {
 	super();

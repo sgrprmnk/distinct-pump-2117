@@ -19,9 +19,11 @@ String message="Not added";
 		
 		try(Connection conn=DbUtil.provideConnection()) {
 			
-	PreparedStatement ps= conn.prepareStatement("insert into Contact (name,phone) values(?,?)");
+	PreparedStatement ps= conn.prepareStatement("insert into Customer (username,password,sourceOfTravel,destinationOfTravel) values(?,?,?,?)");
 	ps.setString(1,customer.getUsername());
 	ps.setString(2, customer.getPassword());
+	ps.setString(3, customer.getSourceOfTravel());
+	ps.setString(4, customer.getDestinationOfTravel());
 	
 	int x=ps.executeUpdate();
 	
@@ -50,8 +52,13 @@ String message="Not added";
 	if(rs.next()) {
 		String user=rs.getString("username");
 		String pass=rs.getString("password");
+		String source=rs.getString("sourceOfTravel");
+		String destina=rs.getString("destinationOfTravel");
 		
-		customer =new Customer(user,pass);
+		
+		customer =new Customer(user,pass,source,destina);
+		
+		
 	} else {
 		System.out.println("Invalid User credentials!");
 	}
@@ -97,7 +104,7 @@ String message="Not added";
 	public List<Bus> getAllBusMatch(String source, String destination) {
 		List<Bus> buses =new ArrayList<>();
 		try(Connection conn=DbUtil.provideConnection()) {
-	PreparedStatement ps=		conn.prepareStatement("select * from Bus where sourceTravel=? AND destinationTravel=?");
+	PreparedStatement ps=conn.prepareStatement("select * from Bus where sourceTravel=? AND destinationTravel=?");
 	
 	ps.setString(1, source);
 	ps.setString(2, destination);
@@ -119,10 +126,13 @@ String message="Not added";
 	}
 		} catch (SQLException e) {
 			// TODO: handle exception
-			e.getMessage();
+			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 		
 		return buses;
 	}
+
+	
 
 }

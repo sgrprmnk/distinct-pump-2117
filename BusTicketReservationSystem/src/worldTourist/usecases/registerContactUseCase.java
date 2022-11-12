@@ -4,11 +4,12 @@ import java.util.Scanner;
 
 import worldTourist.dao.ContactDao;
 import worldTourist.dao.ContactDaoImpl;
+import worldTourist.exception.ContactException;
 import worldTourist.model.Contact;
 
 public class registerContactUseCase {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ContactException {
 		Scanner sc=new Scanner(System.in);
 		
 		System.out.println("Please Enter Contact name");
