@@ -2,7 +2,10 @@ package worldTourist.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import worldTourist.exception.ContactException;
 import worldTourist.model.Contact;
@@ -32,6 +35,34 @@ public class ContactDaoImpl implements ContactDao{
 			throw new ContactException(e.getMessage());
 		}
 		return message;
+	}
+
+	@Override
+	public List<Contact> getAllContact() throws ContactException {
+		List<Contact> contacts =new ArrayList<>();
+		
+		try(Connection conn=DbUtil.provideConnection()) {
+			PreparedStatement ps=conn.prepareStatement("select * from Contact");
+			
+			ResultSet rs=ps.executeQuery();
+			while(rs.next()) {
+				int i=rs.getInt("id");
+				String n=rs.getString("name");
+				String p=rs.getString("phone");
+				Contact contact =new Contact(i,n,p);
+				contacts.add(contact);
+			}
+			
+		} catch (SQLException e) {
+			// TODO: handle exception
+			throw new ContactException(e.getMessage());
+			
+		}
+		if(contacts.size()==0) {
+			throw new ContactException("None Yet registerd");
+		}
+		
+		return contacts;
 	}
 
 }

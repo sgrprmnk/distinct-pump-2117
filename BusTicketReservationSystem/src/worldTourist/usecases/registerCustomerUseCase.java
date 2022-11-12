@@ -10,6 +10,8 @@ import worldTourist.model.Customer;
 public class registerCustomerUseCase {
 public static void main(String[] args) throws CustomerException {
 	Scanner sc =new Scanner(System.in);
+	System.out.println("Please enter user id");
+	int id=sc.nextInt();
 	
 	System.out.println("Please enter a username");
 	String username =sc.next();
@@ -23,7 +25,7 @@ public static void main(String[] args) throws CustomerException {
 	
 	CustomerDao dao =new CustomerDaoImpl();
 	
-	Customer customer =new Customer(username, password,source,destination);
+	Customer customer =new Customer(id,username, password,source,destination);
 	String res=dao.registerCustomer(customer);
 	System.out.println(res);
 	

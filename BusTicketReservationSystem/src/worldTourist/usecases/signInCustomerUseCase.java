@@ -19,7 +19,7 @@ public static void main(String[] args) {
 	try {
 		Customer customer =dao.signInCustomer(username, pass);
 		System.out.println("Welcome: "+customer.getUsername());
-		
+		System.out.println(customer);
 	} catch (Exception e) {
 		// TODO: handle exception
 		e.printStackTrace();

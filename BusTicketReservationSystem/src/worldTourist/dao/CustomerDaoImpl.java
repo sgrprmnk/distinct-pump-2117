@@ -55,13 +55,14 @@ String message="Not added";
 	ResultSet rs=	ps.executeQuery();
 	
 	if(rs.next()) {
+		int id=rs.getInt("id");
 		String user=rs.getString("username");
 		String pass=rs.getString("password");
 		String source=rs.getString("sourceOfTravel");
 		String destina=rs.getString("destinationOfTravel");
 		
 		
-		customer =new Customer(user,pass,source,destina);
+		customer =new Customer(id,user,pass,source,destina);
 		
 		
 	} else {

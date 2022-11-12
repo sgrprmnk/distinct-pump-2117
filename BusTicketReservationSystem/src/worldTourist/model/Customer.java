@@ -2,6 +2,7 @@ package worldTourist.model;
 
 public class Customer {
 
+private int id;	
 private String username;
 private String password;
 private String sourceOfTravel;
@@ -11,12 +12,21 @@ public Customer() {
 	// TODO Auto-generated constructor stub
 }
 
-public Customer(String username, String password, String sourceOfTravel, String destinationOfTravel) {
+public Customer(int id, String username, String password, String sourceOfTravel, String destinationOfTravel) {
 	super();
+	this.id = id;
 	this.username = username;
 	this.password = password;
 	this.sourceOfTravel = sourceOfTravel;
 	this.destinationOfTravel = destinationOfTravel;
+}
+
+public int getId() {
+	return id;
+}
+
+public void setId(int id) {
+	this.id = id;
 }
 
 public String getUsername() {
@@ -50,6 +60,13 @@ public String getDestinationOfTravel() {
 public void setDestinationOfTravel(String destinationOfTravel) {
 	this.destinationOfTravel = destinationOfTravel;
 }
+
+@Override
+public String toString() {
+	return "Customer [id=" + id + ", username=" + username + ", password=" + password + ", sourceOfTravel="
+			+ sourceOfTravel + ", destinationOfTravel=" + destinationOfTravel + "]";
+}
+
 
 
 
