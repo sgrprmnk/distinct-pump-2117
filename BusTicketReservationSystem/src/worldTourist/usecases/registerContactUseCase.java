@@ -12,6 +12,9 @@ public class registerContactUseCase {
 	public static void main(String[] args) throws ContactException {
 		Scanner sc=new Scanner(System.in);
 		
+		System.out.println("Please enter contact Id");
+		int id=sc.nextInt();
+		
 		System.out.println("Please Enter Contact name");
 		String name =sc.next();
 		
@@ -20,7 +23,7 @@ public class registerContactUseCase {
 		
 		ContactDao dao =new ContactDaoImpl();
 		
-		Contact contact =new Contact(name,phone);
+		Contact contact =new Contact(id,name,phone);
 		
 		String res=dao.register(contact);
 		System.out.println(res);

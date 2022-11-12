@@ -5,6 +5,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import worldTourist.exception.AdminException;
 import worldTourist.exception.BusException;
@@ -12,6 +14,7 @@ import worldTourist.exception.ContactException;
 import worldTourist.exception.CustomerException;
 import worldTourist.model.Admin;
 import worldTourist.model.Bus;
+import worldTourist.model.Customer;
 import worldTourist.utility.DbUtil;
 
 public class AdminDaoImpl implements AdminDao{
@@ -127,6 +130,64 @@ public class AdminDaoImpl implements AdminDao{
 			throw new BusException(e.getMessage());
 		}
 		return message;
+	}
+
+	@Override
+	public List<Bus> getAllBus() throws BusException {
+		List<Bus> buses=new ArrayList<>();
+		try(Connection conn=DbUtil.provideConnection()) {
+		PreparedStatement ps=	conn.prepareStatement("select * from Bus");
+		ResultSet rs=	ps.executeQuery();
+		
+		while(rs.next()) {
+			int id=rs.getInt("busId");
+			String n=rs.getString("busName");
+			String r=rs.getString("busRoute");
+			String t=rs.getString("busType");
+			int s=rs.getInt("seats");
+			String st=rs.getString("sourceTravel");
+			String dt=rs.getString("destinationTravel");
+			Bus bus=new Bus(id,n,r,t,s,st,dt);
+			buses.add(bus);
+		}
+			
+		} catch (SQLException e) {
+			// TODO: handle exception
+			throw new BusException(e.getMessage());
+		}
+		if(buses.size()==0) {
+			throw new BusException("No Bus found yet");
+		}
+		
+		return buses;
+	}
+
+	@Override
+	public List<Customer> getAllCustomer() throws CustomerException {
+		
+		List<Customer> customers=new ArrayList<>();
+		try(Connection conn=DbUtil.provideConnection()) {
+		PreparedStatement ps=	conn.prepareStatement("select * from Customer");
+		ResultSet rs=	ps.executeQuery();
+		while(rs.next()) {
+			int id=rs.getInt("id");
+			String u=rs.getString("username");
+			String p=rs.getString("password");
+			String st=rs.getString("sourceOfTravel");
+			String dt=rs.getString("destinationOfTravel");
+			Customer customer=new Customer(id,u,p,st,dt);
+			customers.add(customer);
+		}
+			
+		} catch (SQLException e) {
+			// TODO: handle exception
+			throw new CustomerException(e.getMessage());
+		}
+		if(customers.size()==0) {
+			throw new CustomerException("No Customer found yet");
+		}
+		return customers;
+		
 	}
 
 	
