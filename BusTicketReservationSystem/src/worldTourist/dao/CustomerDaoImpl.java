@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import worldTourist.exception.BusException;
+import worldTourist.exception.CustomerException;
 import worldTourist.model.Bus;
 import worldTourist.model.Customer;
 import worldTourist.utility.DbUtil;
@@ -14,7 +16,7 @@ import worldTourist.utility.DbUtil;
 public class CustomerDaoImpl implements CustomerDao{
 
 	@Override
-	public String registerCustomer(Customer customer) {
+	public String registerCustomer(Customer customer) throws CustomerException{
 String message="Not added";
 		
 		try(Connection conn=DbUtil.provideConnection()) {
@@ -34,12 +36,13 @@ String message="Not added";
 		} catch (SQLException e) {
 			// TODO: handle exception
 			message=e.getMessage();
+			throw new CustomerException(e.getMessage());
 		}
 		return message;
 	}
 
 	@Override
-	public Customer signInCustomer(String username, String password) {
+	public Customer signInCustomer(String username, String password) throws CustomerException{
 		Customer customer =null;
 		try(Connection conn=DbUtil.provideConnection()) {
 			
@@ -65,6 +68,7 @@ String message="Not added";
 		} catch (SQLException e) {
 			// TODO: handle exception
 			e.printStackTrace();
+			throw new CustomerException(e.getMessage());
 		}
 		return customer;
 	}
@@ -78,7 +82,7 @@ String message="Not added";
 	}
 
 	@Override
-	public String cancelBus(int BusId, int cid, int conid) {
+	public String cancelBus(int BusId, int cid, int conid) throws BusException{
 		String message ="Not Cancelled";
 		try(Connection conn=DbUtil.provideConnection()) {
 			PreparedStatement ps=conn.prepareStatement(" delete from bus_booking where id=? AND conid=? AND busId=?");
@@ -95,13 +99,14 @@ String message="Not added";
 		} catch (SQLException e) {
 			// TODO: handle exception
 			message=e.getMessage();
+			throw new BusException(e.getMessage());
 		}
 		
 		return message;
 	}
 
 	@Override
-	public List<Bus> getAllBusMatch(String source, String destination) {
+	public List<Bus> getAllBusMatch(String source, String destination) throws BusException{
 		List<Bus> buses =new ArrayList<>();
 		try(Connection conn=DbUtil.provideConnection()) {
 	PreparedStatement ps=conn.prepareStatement("select * from Bus where sourceTravel=? AND destinationTravel=?");
@@ -128,6 +133,7 @@ String message="Not added";
 			// TODO: handle exception
 			e.printStackTrace();
 			System.out.println(e.getMessage());
+			throw new BusException(e.getMessage());
 		}
 		
 		return buses;

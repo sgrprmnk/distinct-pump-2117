@@ -17,19 +17,20 @@ public static void main(String[] args) throws BusException, CustomerException {
 	System.out.println("Please enter customer Id:");
 	int cid=sc.nextInt();
 	
-//	System.out.println("Please Enter contact Person Id: ");
-//	int conid=sc.nextInt();
+	System.out.println("Please Enter contact Person Id: ");
+	int conid=sc.nextInt();
 //	
 	
 	AdminDao dao =new AdminDaoImpl();
 	
 	try {
-		String result=dao.assignBus(busid,cid);
+		String result=dao.assignBus(busid,cid,conid);
 		System.out.println(result);
 	} catch (Exception e) {
 		// TODO: handle exception
 		e.printStackTrace();
 		System.out.println(e.getMessage());
+		
 	}
 	
 }
