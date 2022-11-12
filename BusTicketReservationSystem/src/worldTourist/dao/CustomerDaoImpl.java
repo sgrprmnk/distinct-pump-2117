@@ -8,8 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import worldTourist.exception.BusException;
+import worldTourist.exception.ContactException;
 import worldTourist.exception.CustomerException;
 import worldTourist.model.Bus;
+import worldTourist.model.BusCustomerDTO;
 import worldTourist.model.Customer;
 import worldTourist.utility.DbUtil;
 
@@ -137,6 +139,40 @@ String message="Not added";
 		}
 		
 		return buses;
+	}
+
+	@Override
+	public List<BusCustomerDTO> getConfirmation(int id) throws BusException, CustomerException, ContactException {
+		List<BusCustomerDTO> dtos=new ArrayList<>();
+		try(Connection conn=DbUtil.provideConnection()) {
+			PreparedStatement ps=conn.prepareStatement
+					("select b.busId,b.busName,b.busRoute,b.busType, co.id,co.name,co.phone from Bus b INNER JOIN Contact co INNER JOIN Customer c INNER JOIN bus_booking bk ON\r\n"
+							+ "b.busId=bk.busId AND co.id=bk.conid AND c.id=?");
+			ps.setInt(1, id);
+			ResultSet rs= ps.executeQuery();
+			
+			while(rs.next()) {
+				BusCustomerDTO dto=new BusCustomerDTO();
+				dto.setBusId(rs.getInt("busId"));
+				dto.setBusName(rs.getString("busName"));
+				dto.setBroute(rs.getString("busRoute"));
+				dto.setBtype(rs.getString("busType"));
+				
+				dto.setConid(rs.getInt("id"));
+				dto.setConName(rs.getString("name"));
+				dto.setCphone(rs.getString("phone"));
+				dtos.add(dto);
+				
+			}
+			if(dtos.size()==0) {
+				throw new BusException("No seats confirmed for the customer");
+			}
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			throw new BusException(e.getMessage());
+		}
+		return dtos;
 	}
 
 	
