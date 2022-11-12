@@ -4,13 +4,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import worldTourist.exception.ContactException;
 import worldTourist.model.Contact;
 import worldTourist.utility.DbUtil;
 
 public class ContactDaoImpl implements ContactDao{
 
 	@Override
-	public String register(Contact contact) {
+	public String register(Contact contact) throws ContactException{
 		String message="Not added";
 		
 		try(Connection conn=DbUtil.provideConnection()) {
@@ -28,6 +29,7 @@ public class ContactDaoImpl implements ContactDao{
 		} catch (SQLException e) {
 			// TODO: handle exception
 			message=e.getMessage();
+			throw new ContactException(e.getMessage());
 		}
 		return message;
 	}

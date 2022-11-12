@@ -1,5 +1,6 @@
 package worldTourist.usecases;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 import worldTourist.dao.AdminDao;
@@ -8,7 +9,7 @@ import worldTourist.exception.BusException;
 import worldTourist.model.Bus;
 
 public class addBusDetailsUseCase {
-public static void main(String[] args) throws BusException {
+public static void main(String[] args) throws BusException, SQLException {
 	Scanner sc=new Scanner(System.in);
 	System.out.println("Please Enter Bus Id");
 	int bid=sc.nextInt();

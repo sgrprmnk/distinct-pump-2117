@@ -6,7 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import worldTourist.exception.AdminException;
 import worldTourist.exception.BusException;
+import worldTourist.exception.ContactException;
 import worldTourist.exception.CustomerException;
 import worldTourist.model.Admin;
 import worldTourist.model.Bus;
@@ -15,7 +17,7 @@ import worldTourist.utility.DbUtil;
 public class AdminDaoImpl implements AdminDao{
 
 	@Override
-	public Admin signInAdmin(String username, String password) {
+	public Admin signInAdmin(String username, String password) throws AdminException{
 		Admin admin =null;
 		try(Connection conn=DbUtil.provideConnection()) {
 			
@@ -36,12 +38,13 @@ public class AdminDaoImpl implements AdminDao{
 		} catch (SQLException e) {
 			// TODO: handle exception
 			e.printStackTrace();
+			throw new AdminException(e.getMessage());
 		}
 		return admin;
 	}
 
 	@Override
-	public String addBusDetails(Bus bus) {
+	public String addBusDetails(Bus bus) throws BusException{
 		String message="Not Assigned";
 		try(Connection conn=DbUtil.provideConnection()) {
 			PreparedStatement ps=conn.prepareStatement("insert into Bus (busId,busName,busRoute,busType,seats,sourceTravel,destinationTravel) values(?,?,?,?,?,?,?)");
@@ -63,6 +66,7 @@ public class AdminDaoImpl implements AdminDao{
 		} catch (SQLException e) {
 			// TODO: handle exception
 			message=e.getMessage();
+			throw new BusException(e.getMessage());
 		}
 		
 		return message;
@@ -70,7 +74,7 @@ public class AdminDaoImpl implements AdminDao{
 
 
 	@Override
-	public String assignBus(int busId, int cid) throws BusException,CustomerException {
+	public String assignBus(int busId, int id,int conid) throws BusException,CustomerException,ContactException {
 		
 	String	message="Not Confirmed";
 		// TODO Auto-generated method stub
@@ -84,30 +88,43 @@ public class AdminDaoImpl implements AdminDao{
 		if(rs.next()) {
 		PreparedStatement ps1=	conn.prepareStatement("select * from Customer where id=?");
 		
-		ps1.setInt(1,cid);
+		ps1.setInt(1,id);
 		
 	ResultSet rs1=	ps1.executeQuery();
-		
+	
 	if(rs1.next()) {
-	PreparedStatement ps2=	conn.prepareStatement("insert into bus_booking (busId,cid)  values(?,?)");
-		ps2.setInt(1,busId);
-		ps2.setInt(2, cid);
-	//	ps2.setInt(3, conid);
+		PreparedStatement ps2=conn.prepareStatement("select * from contact where id=?");
+		ps2.setInt(1, conid);
 		
-		int x=ps2.executeUpdate();
+		ResultSet rs2=ps2.executeQuery();
+	
+		
+	if(rs2.next()) {
+	PreparedStatement ps3=	conn.prepareStatement("insert into bus_booking (busId,id,conid)  values(?,?,?)");
+		ps3.setInt(1,busId);
+		ps3.setInt(2, id);
+		ps3.setInt(3, conid);
+		
+		int x=ps3.executeUpdate();
 		if(x>0) {
 			message="Seat Confirmed";
 		}else 
-			throw new CustomerException("yet not exist customer");
+			throw new CustomerException("yet not exist customer"+id);
 //		else 
 //			throw new BusException("yet not exists bus");
-		
+	}
+	else
+		throw new BusException("yet not exist Bus"+busId);
 	
-	}}	
+	}
+	else 
+		throw new ContactException("yet not exist Contact"+conid);
+	}	
 			
 		} catch (SQLException e) {
 			// TODO: handle exception
 			e.printStackTrace();
+			throw new BusException(e.getMessage());
 		}
 		return message;
 	}
