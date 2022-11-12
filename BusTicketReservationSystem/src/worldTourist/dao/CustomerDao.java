@@ -8,6 +8,7 @@ import worldTourist.exception.BusException;
 import worldTourist.exception.ContactException;
 import worldTourist.exception.CustomerException;
 import worldTourist.model.Bus;
+import worldTourist.model.BusCustomerDTO;
 import worldTourist.model.Customer;
 
 public interface CustomerDao {
@@ -19,7 +20,9 @@ public interface CustomerDao {
 	public String cancelBus(int BusId, int cid, int conid) throws CustomerException, BusException, ContactException;
 	
 	public List<Bus> getAllBusMatch(String source, String destination) throws BusException;
-	//public Contact getAllBusMatch(int conid);
-	//public String checkCnfirmation(int cid);
+	
+	public List<BusCustomerDTO> getConfirmation(int id) throws BusException,CustomerException,ContactException;
+	
+	
 	
 }
