@@ -19,7 +19,7 @@ public static void main(String[] args) throws BusException, CustomerException {
 	
 	System.out.println("Please Enter contact Person Id: ");
 	int conid=sc.nextInt();
-//	
+
 	
 	AdminDao dao =new AdminDaoImpl();
 	
@@ -31,6 +31,8 @@ public static void main(String[] args) throws BusException, CustomerException {
 		e.printStackTrace();
 		System.out.println(e.getMessage());
 		
+	} finally {
+		sc.close();
 	}
 	
 }

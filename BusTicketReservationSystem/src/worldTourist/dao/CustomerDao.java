@@ -16,7 +16,7 @@ public interface CustomerDao {
 	public String registerCustomer(Customer customer) throws CustomerException;
 	public Customer signInCustomer(String username, String password) throws CustomerException;
 	
-	public String bookBus(int BusId,int cid) throws CustomerException,BusException;
+
 	public String cancelBus(int BusId, int cid, int conid) throws CustomerException, BusException, ContactException;
 	
 	public List<Bus> getAllBusMatch(String source, String destination) throws BusException;

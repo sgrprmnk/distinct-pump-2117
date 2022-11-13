@@ -30,7 +30,7 @@ public class ContactDaoImpl implements ContactDao{
 	}
 			
 		} catch (SQLException e) {
-			// TODO: handle exception
+		
 			message=e.getMessage();
 			throw new ContactException(e.getMessage());
 		}
@@ -54,7 +54,7 @@ public class ContactDaoImpl implements ContactDao{
 			}
 			
 		} catch (SQLException e) {
-			// TODO: handle exception
+			
 			throw new ContactException(e.getMessage());
 			
 		}

@@ -23,9 +23,18 @@ public class registerContactUseCase {
 		
 		ContactDao dao =new ContactDaoImpl();
 		
-		Contact contact =new Contact(id,name,phone);
+		try {
+			Contact contact =new Contact(id,name,phone);
+			
+			String res=dao.register(contact);
+			System.out.println(res);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		finally {
+			sc.close();
+		}
 		
-		String res=dao.register(contact);
-		System.out.println(res);
 	}
 }

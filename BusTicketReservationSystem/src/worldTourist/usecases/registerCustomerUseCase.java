@@ -25,9 +25,17 @@ public static void main(String[] args) throws CustomerException {
 	
 	CustomerDao dao =new CustomerDaoImpl();
 	
-	Customer customer =new Customer(id,username, password,source,destination);
-	String res=dao.registerCustomer(customer);
-	System.out.println(res);
+	try {
+		Customer customer =new Customer(id,username, password,source,destination);
+		String res=dao.registerCustomer(customer);
+		System.out.println(res);
+	} catch (Exception e) {
+		// TODO: handle exception
+		e.printStackTrace();
+	}
+	finally {
+		sc.close();
+	}
 	
 }
 }
