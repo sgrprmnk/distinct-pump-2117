@@ -8,17 +8,22 @@ import worldTourist.exception.CustomerException;
 import worldTourist.model.Customer;
 
 public class getAllCustomerUseCase {
-public static void main(String[] args) {
-AdminDao dao=new AdminDaoImpl();
+	public static void getAllCustomer() {
+		AdminDao dao=new AdminDaoImpl();
 
-try {
-	List<Customer> customers=dao.getAllCustomer();
-	customers.forEach(c->System.out.println(c));
+		try {
+			List<Customer> customers=dao.getAllCustomer();
+			customers.forEach(c->System.out.println(c));
+			
+		} catch (CustomerException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+		}
+	}
 	
-} catch (CustomerException e) {
-	// TODO: handle exception
-	e.printStackTrace();
-	System.out.println(e.getMessage());
-}
+public static void main(String[] args) {
+
+	getAllCustomer();
 }
 }
