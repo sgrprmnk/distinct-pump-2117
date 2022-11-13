@@ -12,21 +12,26 @@ import worldTourist.model.BusCustomerDTO;
 
 
 public class getConfirmationUseCase {
-public static void main(String[] args) throws BusException,CustomerException,ContactException {
-	Scanner sc=new Scanner(System.in);
-	System.out.println("Please enter your customer id");
-	int id=sc.nextInt();
-	
-	CustomerDao dao=new CustomerDaoImpl();
-	
-	try {
-		List<BusCustomerDTO> lists=dao.getConfirmation(id);
-		lists.forEach(l->System.out.println(l));
-	} catch (Exception e) {
-		// TODO: handle exception
-		e.printStackTrace();
-	} finally {
-		sc.close();
+	public static void checkConfirmation() throws BusException,CustomerException,ContactException{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Please enter your customer id");
+		int id=sc.nextInt();
+		
+		CustomerDao dao=new CustomerDaoImpl();
+		
+		try {
+			List<BusCustomerDTO> lists=dao.getConfirmation(id);
+			lists.forEach(l->System.out.println(l));
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			sc.close();
+		}
 	}
+	
+public static void main(String[] args) throws BusException,CustomerException,ContactException {
+
+checkConfirmation();
 }
 }
