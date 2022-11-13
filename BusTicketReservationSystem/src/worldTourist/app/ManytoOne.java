@@ -46,7 +46,7 @@ public class ManytoOne {
 	
 	public static void AdminlogIn() throws BusException, SQLException, CustomerException, ContactException {
 		Scanner sc=new Scanner(System.in);
-		System.out.println("2.Add Bus Details"+'n'+"3.Assign Bus to Customer"+'\n'+"6.All Bus Details Info"+'\n'+"7.All Contact Details Info"+'\n'+"8.All Customer Details Info"+'\n'+"10.Add Contact Details"+'\n'+"Press others key like 0 to exit");
+		System.out.println("2.Add Bus Details"+'\n'+"3.Assign Bus to Customer"+'\n'+"6.All Bus Details Info"+'\n'+"7.All Contact Details Info"+'\n'+"8.All Customer Details Info"+'\n'+"10.Add Contact Details"+'\n'+"Press others key like 0 to exit");
 		System.out.println("++++++++++++++++++++++++++++++");
 		int a1=sc.nextInt();
 		if(a1==2) {
