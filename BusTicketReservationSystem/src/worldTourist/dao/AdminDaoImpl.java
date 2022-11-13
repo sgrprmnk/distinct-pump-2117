@@ -39,7 +39,7 @@ public class AdminDaoImpl implements AdminDao{
 		System.out.println("Invalid User credentials!");
 	}
 		} catch (SQLException e) {
-			// TODO: handle exception
+			
 			e.printStackTrace();
 			throw new AdminException(e.getMessage());
 		}
@@ -67,7 +67,7 @@ public class AdminDaoImpl implements AdminDao{
 				message="Bus Assigned Successfully";
 			}
 		} catch (SQLException e) {
-			// TODO: handle exception
+			
 			message=e.getMessage();
 			throw new BusException(e.getMessage());
 		}
@@ -80,7 +80,7 @@ public class AdminDaoImpl implements AdminDao{
 	public String assignBus(int busId, int id,int conid) throws BusException,CustomerException,ContactException {
 		
 	String	message="Not Confirmed";
-		// TODO Auto-generated method stub
+		
 		
 		try(Connection conn=DbUtil.provideConnection()) {
 			
@@ -113,8 +113,7 @@ public class AdminDaoImpl implements AdminDao{
 			message="Seat Confirmed";
 		}else 
 			throw new CustomerException("yet not exist customer"+id);
-//		else 
-//			throw new BusException("yet not exists bus");
+
 	}
 	else
 		throw new BusException("yet not exist Bus"+busId);
@@ -125,7 +124,7 @@ public class AdminDaoImpl implements AdminDao{
 	}	
 			
 		} catch (SQLException e) {
-			// TODO: handle exception
+		
 			e.printStackTrace();
 			throw new BusException(e.getMessage());
 		}
@@ -152,7 +151,7 @@ public class AdminDaoImpl implements AdminDao{
 		}
 			
 		} catch (SQLException e) {
-			// TODO: handle exception
+			
 			throw new BusException(e.getMessage());
 		}
 		if(buses.size()==0) {
@@ -180,7 +179,7 @@ public class AdminDaoImpl implements AdminDao{
 		}
 			
 		} catch (SQLException e) {
-			// TODO: handle exception
+		
 			throw new CustomerException(e.getMessage());
 		}
 		if(customers.size()==0) {

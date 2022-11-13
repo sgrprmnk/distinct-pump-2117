@@ -6,8 +6,6 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class DbUtil {
-	private static String url;
-	private static String driverName;
 	private static String username;
 	private static String password;
 	
@@ -15,8 +13,8 @@ public class DbUtil {
 		
 		ResourceBundle rb= ResourceBundle.getBundle("dbdetails");
 		
-		url= rb.getString("db.url");
-		driverName= rb.getString("db.drivername");
+		rb.getString("db.url");
+		rb.getString("db.drivername");
 		username= rb.getString("db.username");
 		password= rb.getString("db.password");
 		
@@ -42,9 +40,5 @@ public class DbUtil {
 		return conn;
 	}
 	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
-
+	
 }

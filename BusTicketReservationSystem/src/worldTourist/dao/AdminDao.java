@@ -7,7 +7,7 @@ import worldTourist.exception.ContactException;
 import worldTourist.exception.CustomerException;
 import worldTourist.model.Admin;
 import worldTourist.model.Bus;
-import worldTourist.model.Contact;
+
 import worldTourist.model.Customer;
 
 

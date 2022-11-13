@@ -25,6 +25,8 @@ public static void main(String[] args) throws BusException,CustomerException,Con
 	} catch (Exception e) {
 		// TODO: handle exception
 		e.printStackTrace();
+	} finally {
+		sc.close();
 	}
 }
 }

@@ -33,8 +33,17 @@ public static void main(String[] args) throws BusException, SQLException {
 	String dest=sc.next();
 	
 	AdminDao dao=new AdminDaoImpl();
-	Bus bus=new Bus(bid,bname,broute,btype,seats,source,dest);
-	String res=dao.addBusDetails(bus);
-	System.out.println(res);
+	try {
+		Bus bus=new Bus(bid,bname,broute,btype,seats,source,dest);
+		String res=dao.addBusDetails(bus);
+		System.out.println(res);
+	} catch (Exception e) {
+		// TODO: handle exception
+		e.printStackTrace();
+	} finally {
+		sc.close();
+	}
+	
+	
 }
 }

@@ -29,6 +29,8 @@ CustomerDao dao=new CustomerDaoImpl();
 		// TODO: handle exception
 		e.printStackTrace();
 		System.out.println(e.getMessage());
+	} finally {
+		sc.close();
 	}
 }
 }

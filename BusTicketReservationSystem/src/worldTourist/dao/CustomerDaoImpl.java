@@ -36,7 +36,7 @@ String message="Not added";
 	}
 			
 		} catch (SQLException e) {
-			// TODO: handle exception
+			
 			message=e.getMessage();
 			throw new CustomerException(e.getMessage());
 		}
@@ -69,7 +69,7 @@ String message="Not added";
 		System.out.println("Invalid User credentials!");
 	}
 		} catch (SQLException e) {
-			// TODO: handle exception
+			
 			e.printStackTrace();
 			throw new CustomerException(e.getMessage());
 		}
@@ -78,17 +78,12 @@ String message="Not added";
 
 	
 	
-	@Override
-	public String bookBus(int BusId, int cid) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public String cancelBus(int BusId, int cid, int conid) throws BusException{
 		String message ="Not Cancelled";
 		try(Connection conn=DbUtil.provideConnection()) {
-			PreparedStatement ps=conn.prepareStatement(" delete from bus_booking where id=? AND conid=? AND busId=?");
+			PreparedStatement ps=conn.prepareStatement("delete from bus_booking where id=? AND conid=? AND busId=?");
 			ps.setInt(1, cid);
 			ps.setInt(2, conid);
 			ps.setInt(3, BusId);
@@ -96,11 +91,12 @@ String message="Not added";
 			int x=ps.executeUpdate();
 			
 			if(x>0) {
-				System.out.println("Booking Cancelled Successfully");
+				message="Cancelled";
+				System.out.println("Booking Canceling Successfully");
 			}
 			
 		} catch (SQLException e) {
-			// TODO: handle exception
+			e.printStackTrace();
 			message=e.getMessage();
 			throw new BusException(e.getMessage());
 		}
@@ -133,7 +129,7 @@ String message="Not added";
 		
 	}
 		} catch (SQLException e) {
-			// TODO: handle exception
+			
 			e.printStackTrace();
 			System.out.println(e.getMessage());
 			throw new BusException(e.getMessage());
@@ -169,7 +165,7 @@ String message="Not added";
 				throw new BusException("No seats confirmed for the customer");
 			}
 		} catch (SQLException e) {
-			// TODO: handle exception
+		
 			e.printStackTrace();
 			throw new BusException(e.getMessage());
 		}
