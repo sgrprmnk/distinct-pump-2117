@@ -33,6 +33,7 @@
   <img src="https://github.com/efat56/striped-pear-8171/blob/main/Images/hibernate_logo_icon_171004.png" />
    <img src="https://img.icons8.com/ios/50/null/mysql-logo.png"/>
   </p>
+  
 - Core Java
 - JDBC
 - MYSQL
