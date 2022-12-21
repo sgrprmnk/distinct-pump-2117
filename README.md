@@ -1,6 +1,6 @@
 # Bus Ticket Reservation System
 <img src="https://github.com/sgrprmnk/distinct-pump-2117/blob/main/World%20tourist.png.jpg">
-##World Tourist a Bus Ticket Reservation System strictly followed Data Access Object Pattern 
+## <b>World Tourist a Bus Ticket Reservation System strictly followed Data Access Object Pattern </b>
 
 ## Authentication
 - Customer
