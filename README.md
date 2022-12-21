@@ -20,7 +20,9 @@
 - Contact
 - ContactCustomerDTO
 - CustomerBusDTO
-
+# Exception Handling
+- Checked
+- Unchecked
 # Tech Stack
 - Core Java
 - JDBC
