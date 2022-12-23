@@ -41,6 +41,11 @@
 ## Output & Operation
 <a href="https://github.com/sgrprmnk/distinct-pump-2117/blob/main/output_operation.txt">Click Here to show output</a>
 
+##Updated
+- Apps like looks feature developed
+- Bug fixes
+- clean code
+
 
 
 
