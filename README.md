@@ -1,5 +1,5 @@
 # World Tourist (Bus Ticket Reservation System)
-<img src="https://github.com/sgrprmnk/distinct-pump-2117/blob/main/World%20tourist.png.jpg">
+<img src="https://github.com/sgrprmnk/distinct-pump-2117/blob/main/logo.PNG">
 ## <b>World Tourist is a Bus Ticket Reservation System strictly followed Data Access Object design Pattern </b>
 
 ## Authentication
