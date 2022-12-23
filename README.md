@@ -38,7 +38,8 @@
 - JDBC
 - MYSQL
 
-
+## Output & Operation
+<a href="https://github.com/sgrprmnk/distinct-pump-2117/blob/main/output_operation.txt">Click Here to show output</a>
 
 
 
