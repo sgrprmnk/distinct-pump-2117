@@ -33,16 +33,16 @@ create table bus_booking
 (
 busId int,
 id int,
-conid int,
+cid int,
 constraint fk_busId foreign key(busId) references bus(busId),
 constraint fk_user foreign key(id) references Customer(id),
-constraint fk_con foreign key(id) references Contact(id)
+constraint fk_con foreign key(cid) references Contact(cid)
 );
 +++++++++++++++++++++
 =============Contact Table=======================
 create table Contact
 (
-id int primary key auto_increment,
+cid int primary key auto_increment,
 name varchar(20),
 phone varchar(12)
 );
