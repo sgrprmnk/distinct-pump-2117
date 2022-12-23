@@ -24,10 +24,9 @@ public class getConfirmationUseCase {
 			lists.forEach(l->System.out.println(l));
 		} catch (Exception e) {
 			// TODO: handle exception
-			e.printStackTrace();
-		} finally {
-			sc.close();
-		}
+		//	e.printStackTrace();
+			System.out.println(e.getMessage());
+		} 
 	}
 	
 public static void main(String[] args) throws BusException,CustomerException,ContactException {

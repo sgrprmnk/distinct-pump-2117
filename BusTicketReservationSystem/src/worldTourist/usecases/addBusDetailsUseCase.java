@@ -10,7 +10,7 @@ import worldTourist.model.Bus;
 
 public class addBusDetailsUseCase {
 	
-	public static void addBus() throws BusException, SQLException{
+	public static void addBus() throws BusException{
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Please Enter Bus Id");
 		int bid=sc.nextInt();
@@ -38,12 +38,11 @@ public class addBusDetailsUseCase {
 			Bus bus=new Bus(bid,bname,broute,btype,seats,source,dest);
 			String res=dao.addBusDetails(bus);
 			System.out.println(res);
-		} catch (Exception e) {
+		} catch (BusException e) {
 			// TODO: handle exception
-			e.printStackTrace();
-		} finally {
-			sc.close();
-		}
+			System.out.println(e.getMessage());
+			//e.printStackTrace();
+		} 
 	}
 	
 public static void main(String[] args) throws BusException, SQLException {

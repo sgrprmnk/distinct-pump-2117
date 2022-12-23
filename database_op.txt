@@ -1,0 +1,98 @@
+mysql> use sb101project;
+ERROR 1049 (42000): Unknown database 'sb101project'
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| db1                |
+| db2                |
+| db3                |
+| information_schema |
+| mysql              |
+| performance_schema |
+| projectsb101       |
+| sb101              |
+| sb201              |
+| sys                |
++--------------------+
+10 rows in set (0.20 sec)
+
+mysql> use projectsb101;
+Database changed
+mysql> show tables;
++------------------------+
+| Tables_in_projectsb101 |
++------------------------+
+| admin                  |
+| book                   |
+| book_seq               |
+| bus                    |
+| bus_booking            |
+| contact                |
+| customer               |
+| employee               |
+| product                |
+| student                |
++------------------------+
+10 rows in set (0.03 sec)
+
+mysql> select * from admin
+    -> ;
++----+----------+----------+
+| id | username | password |
++----+----------+----------+
+|  1 | admin    | 1234     |
++----+----------+----------+
+1 row in set (0.01 sec)
+
+mysql> select * from customer;
++----+----------+----------+----------------+---------------------+
+| id | username | password | sourceOfTravel | destinationOfTravel |
++----+----------+----------+----------------+---------------------+
+|  1 | abc      | a123     | NULL           | NULL                |
+|  2 | def      | b123     | b              | c                   |
+|  3 | new      | 1234     | a              | v                   |
+|  4 | user     | 1234     | s              | p                   |
+|  5 | trial    | 2222     | a              | c                   |
+|  6 | trial    | 1234     | a              | as                  |
+|  7 | aa       | 1234     | a              | as                  |
+|  8 | ss       | 2222     | c              | d                   |
+|  9 | 1        | sas      | w              | a                   |
+| 10 | bus12    | 4321     | b              | x                   |
+| 11 | sagar    | sagar    | sa             | as                  |
++----+----------+----------+----------------+---------------------+
+11 rows in set (0.00 sec)
+
+mysql> select * from bus;
++-------+----------+----------+---------+-------+--------------+-------------------+
+| busId | busName  | busRoute | busType | seats | sourceTravel | destinationTravel |
++-------+----------+----------+---------+-------+--------------+-------------------+
+|     1 | A        | AB       | AC      |    12 | A            | B                 |
+|     2 | abc      | abcd     | AC      |   112 | aa           | bb                |
+|     3 | CD       | cde      | Non-AC  |    21 | C            | D                 |
+|     4 | IndiaBan | Ganga    | AC      |    21 | India        | Ban               |
+|     9 | masai    | mi       | Non-AC  |  1111 | m            | i                 |
+|   555 | A        | 1        | ac      |    22 | 1            | 2                 |
+|  1111 | As       | a        | ac      |    33 | A            | B                 |
+|  2222 | AS       | fd       | AC      | 22222 | S            | W                 |
+| 11111 | Azad     | AZ       | AC      |    22 | A            | Z                 |
++-------+----------+----------+---------+-------+--------------+-------------------+
+9 rows in set (0.01 sec)
+
+mysql> select * from bus_booking;
++-------+------+-------+
+| busId | id   | conid |
++-------+------+-------+
+|     2 |    2 |     2 |
++-------+------+-------+
+1 row in set (0.00 sec)
+
+mysql> select * from contact;
++----+--------+---------+
+| id | name   | phone   |
++----+--------+---------+
+|  1 | "Amal" | 9090093 |
+|  2 | amal   | 1234    |
+|  3 | ram    | 9894823 |
++----+--------+---------+
+3 rows in set (0.00 sec)

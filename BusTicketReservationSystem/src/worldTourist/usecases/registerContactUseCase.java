@@ -29,11 +29,10 @@ public static void addContact() throws ContactException{
 		System.out.println(res);
 	} catch (Exception e) {
 		// TODO: handle exception
-		e.printStackTrace();
+		System.out.println(e.getMessage());
+		//e.printStackTrace();
 	}
-	finally {
-		sc.close();
-	}
+	
 }
 	public static void main(String[] args) throws ContactException {
 

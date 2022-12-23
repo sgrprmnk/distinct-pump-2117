@@ -31,9 +31,7 @@ public class AssignBusAsminUseCase {
 			e.printStackTrace();
 			System.out.println(e.getMessage());
 			
-		} finally {
-			sc.close();
-		}
+		} 
 	}
 	
 	

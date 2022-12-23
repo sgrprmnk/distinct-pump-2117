@@ -28,11 +28,9 @@ public class getAllBusMatchUseCase {
 			//buses.forEach(s->System.out.println(s));
 		} catch (Exception e) {
 			// TODO: handle exception
-			e.printStackTrace();
+			//e.printStackTrace();
 			System.out.println(e.getMessage());
-		} finally {
-			sc.close();
-		}
+		} 
 	}
 	
 public static void main(String[] args) throws BusException {

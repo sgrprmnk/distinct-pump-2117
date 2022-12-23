@@ -83,7 +83,7 @@ String message="Not added";
 	public String cancelBus(int BusId, int cid, int conid) throws BusException{
 		String message ="Not Cancelled";
 		try(Connection conn=DbUtil.provideConnection()) {
-			PreparedStatement ps=conn.prepareStatement("delete from bus_booking where id=? AND conid=? AND busId=?");
+			PreparedStatement ps=conn.prepareStatement("delete from bus_booking where id=? AND cid=? AND busId=?");
 			ps.setInt(1, cid);
 			ps.setInt(2, conid);
 			ps.setInt(3, BusId);
@@ -143,8 +143,8 @@ String message="Not added";
 		List<BusCustomerDTO> dtos=new ArrayList<>();
 		try(Connection conn=DbUtil.provideConnection()) {
 			PreparedStatement ps=conn.prepareStatement
-					("select b.busId,b.busName,b.busRoute,b.busType, co.id,co.name,co.phone from Bus b INNER JOIN Contact co INNER JOIN Customer c INNER JOIN bus_booking bk ON\r\n"
-							+ "b.busId=bk.busId AND co.id=bk.conid AND c.id=?");
+					("select b.busId,b.busName,b.busRoute,b.busType, co.cid,co.name,co.phone from Bus b INNER JOIN Contact co INNER JOIN Customer c INNER JOIN bus_booking bk ON\r\n"
+							+ "b.busId=bk.busId AND co.cid=bk.cid AND c.id=?");
 			ps.setInt(1, id);
 			ResultSet rs= ps.executeQuery();
 			
@@ -155,7 +155,7 @@ String message="Not added";
 				dto.setBroute(rs.getString("busRoute"));
 				dto.setBtype(rs.getString("busType"));
 				
-				dto.setConid(rs.getInt("id"));
+				dto.setConid(rs.getInt("cid"));
 				dto.setConName(rs.getString("name"));
 				dto.setCphone(rs.getString("phone"));
 				dtos.add(dto);

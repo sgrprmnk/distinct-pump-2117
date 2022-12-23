@@ -15,7 +15,7 @@ public class getAllBusUseCase {
 			buses.forEach(b->System.out.println(b));
 		} catch (BusException e) {
 			// TODO: handle exception
-			e.printStackTrace();
+			//e.printStackTrace();
 			System.out.println(e.getMessage());
 		}
 	}

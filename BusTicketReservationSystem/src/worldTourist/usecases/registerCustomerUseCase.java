@@ -31,11 +31,10 @@ public class registerCustomerUseCase {
 			System.out.println(res);
 		} catch (Exception e) {
 			// TODO: handle exception
-			e.printStackTrace();
+			System.out.println(e.getMessage());
+		//	e.printStackTrace();
 		}
-		finally {
-			sc.close();
-		}
+		
 	}
 	
 	
