@@ -15,7 +15,7 @@ public class getAllContactUseCase {
 			contacts.forEach(c->System.out.println(c));
 		} catch (ContactException e) {
 			// TODO: handle exception
-			e.printStackTrace();
+			//e.printStackTrace();
 			System.out.println(e.getMessage());
 		}
 	}

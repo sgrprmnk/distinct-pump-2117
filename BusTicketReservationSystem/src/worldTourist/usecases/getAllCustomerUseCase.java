@@ -17,7 +17,7 @@ public class getAllCustomerUseCase {
 			
 		} catch (CustomerException e) {
 			// TODO: handle exception
-			e.printStackTrace();
+		//	e.printStackTrace();
 			System.out.println(e.getMessage());
 		}
 	}

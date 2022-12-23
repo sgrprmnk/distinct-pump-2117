@@ -46,7 +46,7 @@ public class ContactDaoImpl implements ContactDao{
 			
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
-				int i=rs.getInt("id");
+				int i=rs.getInt("cid");
 				String n=rs.getString("name");
 				String p=rs.getString("phone");
 				Contact contact =new Contact(i,n,p);

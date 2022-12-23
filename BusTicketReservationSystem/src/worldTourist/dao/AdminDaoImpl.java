@@ -77,7 +77,7 @@ public class AdminDaoImpl implements AdminDao{
 
 
 	@Override
-	public String assignBus(int busId, int id,int conid) throws BusException,CustomerException,ContactException {
+	public String assignBus(int busId, int id,int cid) throws BusException,CustomerException,ContactException {
 		
 	String	message="Not Confirmed";
 		
@@ -96,17 +96,17 @@ public class AdminDaoImpl implements AdminDao{
 	ResultSet rs1=	ps1.executeQuery();
 	
 	if(rs1.next()) {
-		PreparedStatement ps2=conn.prepareStatement("select * from contact where id=?");
-		ps2.setInt(1, conid);
+		PreparedStatement ps2=conn.prepareStatement("select * from contact where cid=?");
+		ps2.setInt(1, cid);
 		
 		ResultSet rs2=ps2.executeQuery();
 	
 		
 	if(rs2.next()) {
-	PreparedStatement ps3=	conn.prepareStatement("insert into bus_booking (busId,id,conid)  values(?,?,?)");
+	PreparedStatement ps3=	conn.prepareStatement("insert into bus_booking (busId,id,cid)  values(?,?,?)");
 		ps3.setInt(1,busId);
 		ps3.setInt(2, id);
-		ps3.setInt(3, conid);
+		ps3.setInt(3, cid);
 		
 		int x=ps3.executeUpdate();
 		if(x>0) {
@@ -120,7 +120,7 @@ public class AdminDaoImpl implements AdminDao{
 	
 	}
 	else 
-		throw new ContactException("yet not exist Contact"+conid);
+		throw new ContactException("yet not exist Contact"+cid);
 	}	
 			
 		} catch (SQLException e) {
@@ -130,7 +130,6 @@ public class AdminDaoImpl implements AdminDao{
 		}
 		return message;
 	}
-
 	@Override
 	public List<Bus> getAllBus() throws BusException {
 		List<Bus> buses=new ArrayList<>();
