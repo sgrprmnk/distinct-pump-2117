@@ -1,0 +1,267 @@
+Please Enter your choice:
+1.Register Customer
+2.LogIn as a Customer
+3.LogIn as an Admin
+Press others key like 0 to exit
+
+
+#################################
+Register
+$$$$$$$$$$$$$$$$$$$$$$$$
+===========================
+Please Enter your choice:
+1.Register Customer
+2.LogIn as a Customer
+3.LogIn as an Admin
+Press others key like 0 to exit
+==================================================
+1
+Please enter user id
+973
+Please enter a username
+steve
+Please enter your password
+jobs
+Please enter source of Travel
+s
+Please enter destination of Travel
+j
+Customer Registered Successfully
+
+########################
+Admin
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Please Enter your choice:
+1.Register Customer
+2.LogIn as a Customer
+3.LogIn as an Admin
+Press others key like 0 to exit
+==================================================
+3
+Please enter your username: 
+admin
+Please enter your password
+1234
+++++++++++++++++++++++++++++++
+1.Add Bus Details
+2.Assign Bus to Customer
+3.All Bus Details Info
+4.All Contact Details Info
+5.All Customer Details Info
+6.Add Contact Details
+Press others key like 0 to exit
+
+
+Please Enter your choice
+1
+Please Enter Bus Id
+777
+Please enter Bus Name
+Mysql
+Please enter Bus Route
+backend
+Please enter Bus Type AC/Non-AC
+AC
+Please enter Bus seats
+99
+Please enter the Source of Bus
+a
+Please enter the Destination of Bus
+z
+Bus Assigned Successfully
+Do you want to continue?
+Yes
+++++++++++++++++++++++++++++++
+1.Add Bus Details
+2.Assign Bus to Customer
+3.All Bus Details Info
+4.All Contact Details Info
+5.All Customer Details Info
+6.Add Contact Details
+Press others key like 0 to exit
+
+
+Please Enter your choice
+6
+Please enter contact Id
+7
+Please Enter Contact name
+virat
+Please Enter Phone Number 
+98765
+Contact Added Successfully
+Do you want to continue?
+Yes
+++++++++++++++++++++++++++++++
+1.Add Bus Details
+2.Assign Bus to Customer
+3.All Bus Details Info
+4.All Contact Details Info
+5.All Customer Details Info
+6.Add Contact Details
+Press others key like 0 to exit
+
+
+Please Enter your choice
+3
+Bus [busId=1, busName=A, busRoute=AB, busType=AC, seats=12, sourceTravel=A, sourceDestination=B]
+Bus [busId=2, busName=abc, busRoute=abcd, busType=AC, seats=112, sourceTravel=aa, sourceDestination=bb]
+Bus [busId=3, busName=CD, busRoute=cde, busType=Non-AC, seats=21, sourceTravel=C, sourceDestination=D]
+Bus [busId=4, busName=IndiaBan, busRoute=Ganga, busType=AC, seats=21, sourceTravel=India, sourceDestination=Ban]
+Bus [busId=9, busName=masai, busRoute=mi, busType=Non-AC, seats=1111, sourceTravel=m, sourceDestination=i]
+Bus [busId=97, busName=Mark, busRoute=MA, busType=AC, seats=99, sourceTravel=z, sourceDestination=a]
+Bus [busId=555, busName=A, busRoute=1, busType=ac, seats=22, sourceTravel=1, sourceDestination=2]
+Bus [busId=777, busName=Mysql, busRoute=backend, busType=AC, seats=99, sourceTravel=a, sourceDestination=z]
+Bus [busId=987, busName=Bharat, busRoute=world, busType=AC, seats=999, sourceTravel=B, sourceDestination=T]
+Bus [busId=1111, busName=As, busRoute=a, busType=ac, seats=33, sourceTravel=A, sourceDestination=B]
+Bus [busId=2222, busName=AS, busRoute=fd, busType=AC, seats=22222, sourceTravel=S, sourceDestination=W]
+Bus [busId=11111, busName=Azad, busRoute=AZ, busType=AC, seats=22, sourceTravel=A, sourceDestination=Z]
+Do you want to continue?
+YEs
+++++++++++++++++++++++++++++++
+1.Add Bus Details
+2.Assign Bus to Customer
+3.All Bus Details Info
+4.All Contact Details Info
+5.All Customer Details Info
+6.Add Contact Details
+Press others key like 0 to exit
+
+
+Please Enter your choice
+5
+Customer [id=1, username=abc, password=a123, sourceOfTravel=null, destinationOfTravel=null]
+Customer [id=2, username=def, password=b123, sourceOfTravel=b, destinationOfTravel=c]
+Customer [id=3, username=new, password=1234, sourceOfTravel=a, destinationOfTravel=v]
+Customer [id=4, username=user, password=1234, sourceOfTravel=s, destinationOfTravel=p]
+Customer [id=5, username=trial, password=2222, sourceOfTravel=a, destinationOfTravel=c]
+Customer [id=6, username=trial, password=1234, sourceOfTravel=a, destinationOfTravel=as]
+Customer [id=7, username=aa, password=1234, sourceOfTravel=a, destinationOfTravel=as]
+Customer [id=8, username=ss, password=2222, sourceOfTravel=c, destinationOfTravel=d]
+Customer [id=9, username=1, password=sas, sourceOfTravel=w, destinationOfTravel=a]
+Customer [id=10, username=bus12, password=4321, sourceOfTravel=b, destinationOfTravel=x]
+Customer [id=11, username=sagar, password=sagar, sourceOfTravel=sa, destinationOfTravel=as]
+Customer [id=12, username=dhoni, password=dhoni, sourceOfTravel=x, destinationOfTravel=xx]
+Customer [id=13, username=steve, password=jobs, sourceOfTravel=s, destinationOfTravel=j]
+Do you want to continue?
+yes
+++++++++++++++++++++++++++++++
+1.Add Bus Details
+2.Assign Bus to Customer
+3.All Bus Details Info
+4.All Contact Details Info
+5.All Customer Details Info
+6.Add Contact Details
+Press others key like 0 to exit
+
+
+Please Enter your choice
+4
+Contact [id=1, name=Amal, phone=9239284]
+Contact [id=2, name=Bimal, phone=2423897]
+Contact [id=3, name=dhoni, phone=7777]
+Contact [id=4, name=virat, phone=98765]
+Do you want to continue?
+Yes
+++++++++++++++++++++++++++++++
+1.Add Bus Details
+2.Assign Bus to Customer
+3.All Bus Details Info
+4.All Contact Details Info
+5.All Customer Details Info
+6.Add Contact Details
+Press others key like 0 to exit
+
+
+Please Enter your choice
+2
+Please enter bus Id
+777
+Please enter customer Id:
+13
+Please Enter contact Person Id: 
+4
+Seat Confirmed
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+Customer
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Please Enter your choice:
+1.Register Customer
+2.LogIn as a Customer
+3.LogIn as an Admin
+Press others key like 0 to exit
+==================================================
+2
+Please enter your username
+steve
+Please enter your password
+jobs
+++++++++++++++++++++++++++++++
+1.Check All the Bus that matches your choice
+2.Check Confirmation of your Journey
+3.Cancel Ticket
+
+
+
+Please Enter Your choice
+1
+Please enter the source of the Travel
+a
+Please enter the destination of the travel
+z
+Bus [busId=777, busName=Mysql, busRoute=backend, busType=AC, seats=99, sourceTravel=a, sourceDestination=z]
+Bus [busId=11111, busName=Azad, busRoute=AZ, busType=AC, seats=22, sourceTravel=A, sourceDestination=Z]
+Do You want to continue?
+yes
+++++++++++++++++++++++++++++++
+1.Check All the Bus that matches your choice
+2.Check Confirmation of your Journey
+3.Cancel Ticket
+
+
+
+Please Enter Your choice
+2
+Please enter your customer id
+4
+BusCustomerDTO [busId=2, busName=abc, broute=abcd, btype=AC, conid=2, conName=Bimal, cphone=2423897]
+BusCustomerDTO [busId=777, busName=Mysql, broute=backend, btype=AC, conid=4, conName=virat, cphone=98765]
+Do You want to continue?
+++++++++++++++++++++++++++++++
+1.Check All the Bus that matches your choice
+2.Check Confirmation of your Journey
+3.Cancel Ticket
+
+
+
+Please Enter Your choice
+3
+Please enter customer id:
+2
+Please enter contactid:
+2
+Please enter busId:
+2
+Not Cancelled
+Do You want to continue?
+yes
+++++++++++++++++++++++++++++++
+1.Check All the Bus that matches your choice
+2.Check Confirmation of your Journey
+3.Cancel Ticket
+
+
+
+Please Enter Your choice
+3
+Please enter bus id:
+777
+Please enter customerid:
+13
+Please enter contactId:
+4
+Booking Canceling Successfully
+Cancelled
+
