@@ -101,7 +101,9 @@ public class Main {
 		}while(userChoice.equalsIgnoreCase("Yes"));
 	}
 	
-	public static void main(String[] args) throws BusException, SQLException, CustomerException, ContactException, AdminException {
+
+
+public static void main(String[] args) throws BusException, SQLException, CustomerException, ContactException, AdminException {
 	Scanner sc=new Scanner(System.in);
 	System.out.println("Please Enter your choice:");
 	System.out.println("1.Register Customer"+'\n'+"2.LogIn as a Customer"+'\n'+"3.LogIn as an Admin"+'\n'+"Press others key like 0 to exit");
